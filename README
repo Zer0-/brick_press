@@ -1,0 +1,29 @@
+== BRICK PRESS ==
+
+This is a tool for building static files (such as sass) and concatenating
+and compressing them into one file.
+
+The input is a blank-line separated list of files that should be built
+(and possibly minified) returns a list of urls corresponding to where
+the built group is now served. Here is a made-up example:
+
+INPUT:
+
+/project/a.coffee
+/project/b.coffee
+/project/a.js
+/project/c.coffee
+
+/project/sass_lib
+/project/a.scss
+/project/b.scss
+/project/c.css
+
+OUTPUT:
+
+http://localhost:8080/js/1.js
+http://localhost:8080/css/1.css
+
+So each group of paths in the input correspond to a single url in the output.
+Note that for sass files the line may be a directory path, in the case
+where a library is needed to compile the scss file.
